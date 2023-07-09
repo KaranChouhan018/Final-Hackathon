@@ -173,14 +173,28 @@ button a{
     box-sizing: border-box;
     transition: 0.5s;
  }
+ .course-col1{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding:20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transform: rotate(-4deg);
+    box-shadow:-6px -6px 1px rgb(212, 223, 67) ;
+ }
+ .course-col1:hover{
+    transform: rotate(0);
+ }
  h3{
     text-align: center;
     font-weight: 600;
     margin: 10px 0;
  }
  .course-col:hover{
-    box-shadow: 0 0 20px 0px rgba( 0,0,0,0.2);
-    transform: rotate(-4deg)
+    transform: rotate(-4deg);
+    box-shadow:-6px -6px 1px rgb(212, 223, 67) ;
  }
  @media(max-width: 700px){
     .row{
@@ -262,7 +276,7 @@ button a{
     background-color: #1D2026;
     color: #fff;
     padding: 7vw 10vw;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 #page13>h1{
     font-size: 5vw;

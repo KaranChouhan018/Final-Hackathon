@@ -48,10 +48,10 @@
                      <p>We are happy to have you back.</p>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email address">
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" id="username" value="" placeholder="Email address">
                 </div>
                 <div class="input-group mb-1">
-                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg bg-light fs-6" id="password" value="" placeholder="Password">
                 </div>
                 <div class="input-group mb-5 d-flex justify-content-between">
                     <div class="form-check">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
+                    <button class="btn btn-lg btn-primary w-100 fs-6" style="background: #6a3ce7;"  type="sumbit">Login</button>
                 </div>
                 <div class="row">
                     <small>Don't have account? <a href="#">Sign Up</a></small>
@@ -73,6 +73,54 @@
 
       </div>
     </div>
+
+
+
+    <script type="module" src="">
+          // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+  import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmss1TMuwXHIxevk3Phgy95M45XxtvCKs",
+    authDomain: "gintera-7fb08.firebaseapp.com",
+    projectId: "gintera-7fb08",
+    storageBucket: "gintera-7fb08.appspot.com",
+    messagingSenderId: "867321601395",
+    appId: "1:867321601395:web:bf39b64901ea339b9e3906"
+  };
+// initialize firebase
+firebase.initializeApp(firebaseConfig);
+
+// reference your database
+var contactFormDB = firebase.database().ref("contactForm");
+
+document.getElementById("contactForm").addEventListener("submit", submitForm);
+
+function submitForm(e){
+  e.preventDefault();
+
+  var name = getElementVal("username");
+  var emailid = getElementVal("password");
+
+  saveMessages(username, password);
+}
+
+const saveMessages = (username, password, msgContent) => {
+  var newContactForm = contactFormDB.push();
+
+  newContactForm.set({
+    username: username,
+    password: password,
+  });
+};
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+};
+</script>
+
 
 </body>
 </html>
