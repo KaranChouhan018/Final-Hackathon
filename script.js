@@ -318,3 +318,6 @@ tl.to("#loader h1",{
 
 
 gsap.from('.navbar ' , {opacity : 0 , duration: 5 , y : -50})
+
+
+
